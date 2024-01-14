@@ -1,0 +1,28 @@
+$white:rgb(255, 255, 255);
+$accent:rgb(255, 104, 56);
+$silver-bg:rgb(249, 250, 255);
+$silver:rgb(236, 236, 236);
+$grey:rgb(194, 194, 194);
+$darkBlue:rgb(54, 56, 83);
+$dark:rgb(49, 53, 43);
+
+
+%rubik-300 {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 300;
+}
+
+%rubik-400 {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+}
+
+%rubik-500 {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 500;
+}
+
+%btn {
+	border-radius: 6px;
+	padding: 13px 32px;
+}
