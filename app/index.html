@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сервіс доставки їжі</title>
+  <title>SimpleFood - Сервіс доставки їжі</title>
   <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">
@@ -19,34 +19,38 @@
 
   <header class="header">
     <div class="container header__container">
+
       <a class="logo" href="#">
         <img class="logo__img" src="./images/logo.svg" alt="логотип">
       </a>
 
-      <nav class="menu">
-        <ul class="menu__list">
-          <li class="menu__item">
-            <a href="#" class="menu__link menu__link--color">Головна</a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">Страви</a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">Контакти</a>
-          </li>
-        </ul>
+      <div class="header__inner">
+        <nav class="menu">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a href="#" class="link menu__link current">Головна</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="link menu__link">Страви</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="link menu__link">Контакти</a>
+            </li>
+          </ul>
+        </nav>
 
-        <div class="menu__box">
-          <a href="#" class="menu__search">
+        <div class="header__box">
+          <button class="header__search" type="button">
             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
               <ellipse cx="9.76663" cy="9.65987" rx="8.98856" ry="8.88424" stroke="black" stroke-width="1.5"
                 stroke-linecap="round" stroke-linejoin="round" />
               <path d="M16.0183 16.3004L19.5423 19.7745" stroke="black" stroke-width="1.5" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
-          </a>
+            <span class="visually-hidden">кнопка пошуку товарів</span>
+          </button>
 
-          <a href="#" class="menu__basket">
+          <button class="header__basket" type="button">
             <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M1 1.02979L3.08 1.38561L4.04301 12.7255C4.12001 13.6516 4.90301 14.3622 5.84301 14.3593H16.752C17.649 14.3613 18.41 13.7089 18.537 12.8312L19.486 6.34932C19.592 5.62483 19.083 4.95272 18.351 4.84795C18.287 4.83906 3.414 4.83412 3.414 4.83412"
@@ -60,16 +64,12 @@
                 d="M16.6846 17.7856C16.9856 17.7856 17.2296 18.0269 17.2296 18.3236C17.2296 18.6213 16.9856 18.8625 16.6846 18.8625C16.3836 18.8625 16.1406 18.6213 16.1406 18.3236C16.1406 18.0269 16.3836 17.7856 16.6846 17.7856Z"
                 fill="black" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <span class="menu__num">4</span>
-          </a>
-
+            <span class="visually-hidden">кнопка кошика</span>
+            <span class="header__num">4</span>
+          </button>
         </div>
-      </nav>
+      </div>
 
-      <button class="burger-btn" type="button">
-        <span class="burger-btn__line"></span>
-        <span class="visually-hidden">кнопка меню</span>
-      </button>
 
     </div>
   </header>
@@ -78,17 +78,18 @@
 
     <section class="hero">
       <div class="container">
+        <h1 class="visually-hidden">Cервіс доставки їжі Сімплфуд</h1>
         <div class="hero__wrapper" style="background-image: url('./images/hero_bg.png');">
           <div class="hero__content">
-            <h1 class="title hero__title">
+            <h2 class="hero__title">
               Доставка
               <span class="hero__subtitle">за 15 хвилин</span>
-            </h1>
+            </h2>
             <p class="hero__text">
               Найшвидший сервіс доставки їжі у вашому місті. Якщо запізнемось - то доставка за наш рахунок
             </p>
-            <button class="btn hero__btn" type="button">Замовити</button>
-            <a class="link" href="#">Детальніше</a>
+            <a class="btn btn--big hero__btn" href="#">Замовити</a>
+            <a class="link link--underline" href="#">Детальніше</a>
           </div>
         </div>
       </div>
@@ -100,9 +101,9 @@
           Популярне в категоріях
         </h2>
 
-        <ul class="popular__filter">
-          <li class="popular__wrapper">
-            <button class="popular__button" type="button" data-filter=".category-a">
+        <ul class="popular-filter">
+          <li class="popular-filter__item">
+            <button class="popular-filter__btn" type="button" data-filter="all">
               <svg width="44" height="45" viewBox="0 0 44 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_669_756)">
                   <path
@@ -127,12 +128,12 @@
                   </clipPath>
                 </defs>
               </svg>
-              <span class="popular__name">Бургери</span>
+              Бургери
             </button>
           </li>
 
-          <li class="popular__wrapper">
-            <button class="popular__button" type="button" data-filter=".category-b">
+          <li class="popular-filter__item">
+            <button class="popular-filter__btn" type="button" data-filter=".category-a">
               <svg width="44" height="45" viewBox="0 0 44 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_669_763)">
                   <path
@@ -163,12 +164,12 @@
                   </clipPath>
                 </defs>
               </svg>
-              <span class="popular__name">Піца</span>
+              Піца
             </button>
           </li>
 
-          <li class="popular__wrapper">
-            <button class="popular__button" type="button" data-filter=".category-c">
+          <li class="popular-filter__item">
+            <button class="popular-filter__btn" type="button" data-filter=".category-b">
               <svg width="44" height="45" viewBox="0 0 44 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_669_785)">
                   <path
@@ -202,12 +203,12 @@
                   </clipPath>
                 </defs>
               </svg>
-              <span class="popular__name">Сендвічі</span>
+              Сендвічі
             </button>
           </li>
 
-          <li class="popular__wrapper">
-            <button class="popular__button" type="button" data-filter=".category-d">
+          <li class="popular-filter__item">
+            <button class="popular-filter__btn" type="button" data-filter=".category-c">
               <svg width="44" height="45" viewBox="0 0 44 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_669_808)">
                   <g clip-path="url(#clip1_669_808)">
@@ -246,12 +247,12 @@
                   </clipPath>
                 </defs>
               </svg>
-              <span class="popular__name">Азійська кухня</span>
+              Азійська кухня
             </button>
-
           </li>
-          <li class="popular__wrapper">
-            <button class="popular__button" type="button" data-filter=".category-e">
+
+          <li class="popular-filter__item">
+            <button class="popular-filter__btn" type="button" data-filter=".category-d">
               <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_669_820)">
                   <path
@@ -291,388 +292,183 @@
                   </clipPath>
                 </defs>
               </svg>
-              <span class="popular__name">Cети</span>
+              Cети
             </button>
           </li>
 
         </ul>
 
-        <ul class="popular__list">
-          <li class="popular__item mix category-a">
-            <img class="popular__img" src="./images/popular/item_01.jpg" width="140" height="140"
-              alt="Чізбургер з листям салату">
-            <p class="popular__caption">Чізбургер з листям салату</p>
-            <span class="popular__price">160 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
+        <ul class="popular-list">
+
+          <li class="popular-list__item mix category-a">
+
+            <article class="card">
+              <a class="card__link" href="#">
+                <img class="card__img" src="./images/popular/item_01.jpg" width="140" height="140"
+                  alt="Чізбургер з листям салату">
+              </a>
+              <h3 class="card__title">Чізбургер з листям салату</h3>
+              <span class="card__price">
+                <span class="card__price-value">160</span>
+                <span class="currency"> грн.</span>
+              </span>
+              <button class="btn btn--medium" type="button">До кошика</button>
+            </article>
+
           </li>
 
-          <li class="popular__item mix category-b">
-            <img class="popular__img" src="./images/popular/item_02.png" width="140" height="140" alt="Біфбургер">
-            <p class="popular__caption">Біфбургер</p>
-            <span class="popular__price">190 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
+          <li class="popular-list__item mix category-b">
+
+            <article class="card">
+              <a class="card__link" href="#">
+                <img class="card__img" src="./images/popular/item_02.png" width="140" height="140" alt="Біфбургер">
+              </a>
+              <h3 class="card__title">Біфбургер</h3>
+              <span class="card__price">
+                <span class="card__price-value">190</span>
+                <span class="currency"> грн.</span>
+              </span>
+              <button class="btn btn--medium" type="button">До кошика</button>
+            </article>
+
           </li>
 
-          <li class="popular__item mix category-c">
-            <img class="popular__img" src="./images/popular/item_03.jpg" width="140" height="140"
-              alt="Королівський чізбургер">
-            <p class="popular__caption">Королівський чізбургер</p>
-            <span class="popular__price">260 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
+          <li class="popular-list__item mix category-c">
+
+            <article class="card">
+              <a class="card__link" href="#">
+                <img class="card__img" src="./images/popular/item_03.jpg" width="140" height="140"
+                  alt="Королівський чізбургер">
+              </a>
+              <h3 class="card__title">Королівський чізбургер</h3>
+              <span class="card__price">
+                <span class="card__price-value">260</span>
+                <span class="currency"> грн.</span>
+              </span>
+              <button class="btn btn--medium" type="button">До кошика</button>
+            </article>
+
           </li>
 
-          <li class="popular__item mix category-d">
-            <img class="popular__img" src="./images/popular/item_04.jpg" width="140" height="140"
-              alt="Чорний гамбургер">
-            <p class="popular__caption">Чорний гамбургер</p>
-            <span class="popular__price">199 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
+          <li class="popular-list__item mix category-d">
+
+            <article class="card">
+              <a class="card__link" href="#">
+                <img class="card__img" src="./images/popular/item_04.jpg" width="140" height="140"
+                  alt="Чорний гамбургер">
+              </a>
+              <h3 class="card__title">Чорний гамбургер</h3>
+              <span class="card__price">
+                <span class="card__price-value">199</span>
+                <span class="currency"> грн.</span>
+              </span>
+              <button class="btn btn--medium" type="button">До кошика</button>
+            </article>
+
           </li>
 
-          <li class="popular__item mix category-e">
-            <img class="popular__img" src="./images/popular/item_05.jpg" width="140" height="140" alt="Чікен бургер">
-            <p class="popular__caption">Чікен бургер</p>
-            <span class="popular__price">180 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
+          <li class="popular-list__item mix category-d">
+
+            <article class="card">
+              <a class="card__link" href="#">
+                <img class="card__img" src="./images/popular/item_05.jpg" width="140" height="140" alt="Чікен бургер">
+              </a>
+              <h3 class="card__title">Чікен бургер</h3>
+              <span class="card__price">
+                <span class="card__price-value">180</span>
+                <span class="currency"> грн.</span>
+              </span>
+              <button class="btn btn--medium" type="button">До кошика</button>
+            </article>
+
           </li>
 
-          <li class="popular__item mix category-a">
-            <img class="popular__img" src="./images/popular/item_01.jpg" width="140" height="140"
-              alt="Чізбургер з листям салату">
-            <p class="popular__caption">Чізбургер з листям салату</p>
-            <span class="popular__price">160 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
+          <li class="popular-list__item mix category-a">
+
+            <article class="card">
+              <a class="card__link" href="#">
+                <img class="card__img" src="./images/popular/item_01.jpg" width="140" height="140"
+                  alt="Чізбургер з листям салату">
+              </a>
+              <h3 class="card__title">Чізбургер з листям салату</h3>
+              <span class="card__price">
+                <span class="card__price-value">160</span>
+                <span class="currency"> грн.</span>
+              </span>
+              <button class="btn btn--medium" type="button">До кошика</button>
+            </article>
+
           </li>
 
-          <li class="popular__item mix category-b">
-            <img class="popular__img" src="./images/popular/item_02.png" width="140" height="140" alt="Біфбургер">
-            <p class="popular__caption">Біфбургер</p>
-            <span class="popular__price">190 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
+          <li class="popular-list__item mix category-b">
+
+            <article class="card">
+              <a class="card__link" href="#">
+                <img class="card__img" src="./images/popular/item_02.png" width="140" height="140" alt="Біфбургер">
+              </a>
+              <h3 class="card__title">Біфбургер</h3>
+              <span class="card__price">
+                <span class="card__price-value">190</span>
+                <span class="currency"> грн.</span>
+              </span>
+              <button class="btn btn--medium" type="button">До кошика</button>
+            </article>
+
           </li>
 
-          <li class="popular__item mix category-c">
-            <img class="popular__img" src="./images/popular/item_03.jpg" width="140" height="140"
-              alt="Королівський чізбургер">
-            <p class="popular__caption">Королівський чізбургер</p>
-            <span class="popular__price">260 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
+          <li class="popular-list__item mix category-c">
+
+            <article class="card">
+              <a class="card__link" href="#">
+                <img class="card__img" src="./images/popular/item_03.jpg" width="140" height="140"
+                  alt="Королівський чізбургер">
+              </a>
+              <h3 class="card__title">Королівський чізбургер</h3>
+              <span class="card__price">
+                <span class="card__price-value">260</span>
+                <span class="currency"> грн.</span>
+              </span>
+              <button class="btn btn--medium" type="button">До кошика</button>
+            </article>
+
           </li>
 
-          <li class="popular__item mix category-d">
-            <img class="popular__img" src="./images/popular/item_04.jpg" width="140" height="140"
-              alt="Чорний гамбургер">
-            <p class="popular__caption">Чорний гамбургер</p>
-            <span class="popular__price">199 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
+          <li class="popular-list__item mix category-d">
+
+            <article class="card">
+              <a class="card__link" href="#">
+                <img class="card__img" src="./images/popular/item_04.jpg" width="140" height="140"
+                  alt="Чорний гамбургер">
+              </a>
+              <h3 class="card__title">Чорний гамбургер</h3>
+              <span class="card__price">
+                <span class="card__price-value">199</span>
+                <span class="currency"> грн.</span>
+              </span>
+              <button class="btn btn--medium" type="button">До кошика</button>
+            </article>
+
           </li>
 
-          <li class="popular__item mix category-e">
-            <img class="popular__img" src="./images/popular/item_05.jpg" width="140" height="140" alt="Чікен бургер">
-            <p class="popular__caption">Чікен бургер</p>
-            <span class="popular__price">180 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-          <li class="popular__item mix category-a">
-            <img class="popular__img" src="./images/popular/item_01.jpg" width="140" height="140"
-              alt="Чізбургер з листям салату">
-            <p class="popular__caption">Чізбургер з листям салату</p>
-            <span class="popular__price">160 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
+          <li class="popular-list__item mix category-d">
+
+            <article class="card">
+              <a class="card__link" href="#">
+                <img class="card__img" src="./images/popular/item_05.jpg" width="140" height="140" alt="Чікен бургер">
+              </a>
+              <h3 class="card__title">Чікен бургер</h3>
+              <span class="card__price">
+                <span class="card__price-value">180</span>
+                <span class="currency"> грн.</span>
+              </span>
+              <button class="btn btn--medium" type="button">До кошика</button>
+            </article>
+
           </li>
 
-          <li class="popular__item mix category-b">
-            <img class="popular__img" src="./images/popular/item_02.png" width="140" height="140" alt="Біфбургер">
-            <p class="popular__caption">Біфбургер</p>
-            <span class="popular__price">190 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-c">
-            <img class="popular__img" src="./images/popular/item_03.jpg" width="140" height="140"
-              alt="Королівський чізбургер">
-            <p class="popular__caption">Королівський чізбургер</p>
-            <span class="popular__price">260 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-d">
-            <img class="popular__img" src="./images/popular/item_04.jpg" width="140" height="140"
-              alt="Чорний гамбургер">
-            <p class="popular__caption">Чорний гамбургер</p>
-            <span class="popular__price">199 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-e">
-            <img class="popular__img" src="./images/popular/item_05.jpg" width="140" height="140" alt="Чікен бургер">
-            <p class="popular__caption">Чікен бургер</p>
-            <span class="popular__price">180 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-          <li class="popular__item mix category-a">
-            <img class="popular__img" src="./images/popular/item_01.jpg" width="140" height="140"
-              alt="Чізбургер з листям салату">
-            <p class="popular__caption">Чізбургер з листям салату</p>
-            <span class="popular__price">160 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-b">
-            <img class="popular__img" src="./images/popular/item_02.png" width="140" height="140" alt="Біфбургер">
-            <p class="popular__caption">Біфбургер</p>
-            <span class="popular__price">190 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-c">
-            <img class="popular__img" src="./images/popular/item_03.jpg" width="140" height="140"
-              alt="Королівський чізбургер">
-            <p class="popular__caption">Королівський чізбургер</p>
-            <span class="popular__price">260 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-d">
-            <img class="popular__img" src="./images/popular/item_04.jpg" width="140" height="140"
-              alt="Чорний гамбургер">
-            <p class="popular__caption">Чорний гамбургер</p>
-            <span class="popular__price">199 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-e">
-            <img class="popular__img" src="./images/popular/item_05.jpg" width="140" height="140" alt="Чікен бургер">
-            <p class="popular__caption">Чікен бургер</p>
-            <span class="popular__price">180 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-          <li class="popular__item mix category-a">
-            <img class="popular__img" src="./images/popular/item_01.jpg" width="140" height="140"
-              alt="Чізбургер з листям салату">
-            <p class="popular__caption">Чізбургер з листям салату</p>
-            <span class="popular__price">160 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-b">
-            <img class="popular__img" src="./images/popular/item_02.png" width="140" height="140" alt="Біфбургер">
-            <p class="popular__caption">Біфбургер</p>
-            <span class="popular__price">190 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-c">
-            <img class="popular__img" src="./images/popular/item_03.jpg" width="140" height="140"
-              alt="Королівський чізбургер">
-            <p class="popular__caption">Королівський чізбургер</p>
-            <span class="popular__price">260 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-d">
-            <img class="popular__img" src="./images/popular/item_04.jpg" width="140" height="140"
-              alt="Чорний гамбургер">
-            <p class="popular__caption">Чорний гамбургер</p>
-            <span class="popular__price">199 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-e">
-            <img class="popular__img" src="./images/popular/item_05.jpg" width="140" height="140" alt="Чікен бургер">
-            <p class="popular__caption">Чікен бургер</p>
-            <span class="popular__price">180 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-          <li class="popular__item mix category-a">
-            <img class="popular__img" src="./images/popular/item_01.jpg" width="140" height="140"
-              alt="Чізбургер з листям салату">
-            <p class="popular__caption">Чізбургер з листям салату</p>
-            <span class="popular__price">160 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-b">
-            <img class="popular__img" src="./images/popular/item_02.png" width="140" height="140" alt="Біфбургер">
-            <p class="popular__caption">Біфбургер</p>
-            <span class="popular__price">190 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-c">
-            <img class="popular__img" src="./images/popular/item_03.jpg" width="140" height="140"
-              alt="Королівський чізбургер">
-            <p class="popular__caption">Королівський чізбургер</p>
-            <span class="popular__price">260 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-d">
-            <img class="popular__img" src="./images/popular/item_04.jpg" width="140" height="140"
-              alt="Чорний гамбургер">
-            <p class="popular__caption">Чорний гамбургер</p>
-            <span class="popular__price">199 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-e">
-            <img class="popular__img" src="./images/popular/item_05.jpg" width="140" height="140" alt="Чікен бургер">
-            <p class="popular__caption">Чікен бургер</p>
-            <span class="popular__price">180 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-a">
-            <img class="popular__img" src="./images/popular/item_01.jpg" width="140" height="140"
-              alt="Чізбургер з листям салату">
-            <p class="popular__caption">Чізбургер з листям салату</p>
-            <span class="popular__price">160 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-b">
-            <img class="popular__img" src="./images/popular/item_02.png" width="140" height="140" alt="Біфбургер">
-            <p class="popular__caption">Біфбургер</p>
-            <span class="popular__price">190 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-c">
-            <img class="popular__img" src="./images/popular/item_03.jpg" width="140" height="140"
-              alt="Королівський чізбургер">
-            <p class="popular__caption">Королівський чізбургер</p>
-            <span class="popular__price">260 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-d">
-            <img class="popular__img" src="./images/popular/item_04.jpg" width="140" height="140"
-              alt="Чорний гамбургер">
-            <p class="popular__caption">Чорний гамбургер</p>
-            <span class="popular__price">199 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-e">
-            <img class="popular__img" src="./images/popular/item_05.jpg" width="140" height="140" alt="Чікен бургер">
-            <p class="popular__caption">Чікен бургер</p>
-            <span class="popular__price">180 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-          <li class="popular__item mix category-a">
-            <img class="popular__img" src="./images/popular/item_01.jpg" width="140" height="140"
-              alt="Чізбургер з листям салату">
-            <p class="popular__caption">Чізбургер з листям салату</p>
-            <span class="popular__price">160 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-b">
-            <img class="popular__img" src="./images/popular/item_02.png" width="140" height="140" alt="Біфбургер">
-            <p class="popular__caption">Біфбургер</p>
-            <span class="popular__price">190 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-c">
-            <img class="popular__img" src="./images/popular/item_03.jpg" width="140" height="140"
-              alt="Королівський чізбургер">
-            <p class="popular__caption">Королівський чізбургер</p>
-            <span class="popular__price">260 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-d">
-            <img class="popular__img" src="./images/popular/item_04.jpg" width="140" height="140"
-              alt="Чорний гамбургер">
-            <p class="popular__caption">Чорний гамбургер</p>
-            <span class="popular__price">199 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-e">
-            <img class="popular__img" src="./images/popular/item_05.jpg" width="140" height="140" alt="Чікен бургер">
-            <p class="popular__caption">Чікен бургер</p>
-            <span class="popular__price">180 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-          <li class="popular__item mix category-a">
-            <img class="popular__img" src="./images/popular/item_01.jpg" width="140" height="140"
-              alt="Чізбургер з листям салату">
-            <p class="popular__caption">Чізбургер з листям салату</p>
-            <span class="popular__price">160 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-b">
-            <img class="popular__img" src="./images/popular/item_02.png" width="140" height="140" alt="Біфбургер">
-            <p class="popular__caption">Біфбургер</p>
-            <span class="popular__price">190 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-c">
-            <img class="popular__img" src="./images/popular/item_03.jpg" width="140" height="140"
-              alt="Королівський чізбургер">
-            <p class="popular__caption">Королівський чізбургер</p>
-            <span class="popular__price">260 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-d">
-            <img class="popular__img" src="./images/popular/item_04.jpg" width="140" height="140"
-              alt="Чорний гамбургер">
-            <p class="popular__caption">Чорний гамбургер</p>
-            <span class="popular__price">199 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-e">
-            <img class="popular__img" src="./images/popular/item_05.jpg" width="140" height="140" alt="Чікен бургер">
-            <p class="popular__caption">Чікен бургер</p>
-            <span class="popular__price">180 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-          <li class="popular__item mix category-a">
-            <img class="popular__img" src="./images/popular/item_01.jpg" width="140" height="140"
-              alt="Чізбургер з листям салату">
-            <p class="popular__caption">Чізбургер з листям салату</p>
-            <span class="popular__price">160 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-b">
-            <img class="popular__img" src="./images/popular/item_02.png" width="140" height="140" alt="Біфбургер">
-            <p class="popular__caption">Біфбургер</p>
-            <span class="popular__price">190 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-c">
-            <img class="popular__img" src="./images/popular/item_03.jpg" width="140" height="140"
-              alt="Королівський чізбургер">
-            <p class="popular__caption">Королівський чізбургер</p>
-            <span class="popular__price">260 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-d">
-            <img class="popular__img" src="./images/popular/item_04.jpg" width="140" height="140"
-              alt="Чорний гамбургер">
-            <p class="popular__caption">Чорний гамбургер</p>
-            <span class="popular__price">199 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
-
-          <li class="popular__item mix category-e">
-            <img class="popular__img" src="./images/popular/item_05.jpg" width="140" height="140" alt="Чікен бургер">
-            <p class="popular__caption">Чікен бургер</p>
-            <span class="popular__price">180 грн.</span>
-            <button class="popular__btn btn" type="button">До кошика</button>
-          </li>
         </ul>
 
-        <a class="popular__link link" href="#">Показати ще</a>
+        <a class="link link--underline" href="#">Показати ще</a>
       </div>
     </section>
 
@@ -681,89 +477,125 @@
   <footer class="footer">
     <div class="container footer__container">
 
-      <form class="form" action="#">
-        <a class="logo form__logo" href="#">
+      <div class="footer__inner">
+        <a class="logo footer__logo" href="#">
           <img class="logo__img" src="./images/logo.svg" alt="логотип">
         </a>
 
-        <label class="form__label" for="mail">
-          <input class="form__input" type="text" id="mail" name="mail" required placeholder="Ваш email">
-        </label>
+        <form class="form" action="#">
 
-        <button class="btn form__btn" type="submit">
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M9.31801 14.3299C9.05868 14.3299 8.81931 14.1914 8.70237 13.9704L6.66079 10.112C6.54867 9.90012 6.56793 9.64662 6.71031 9.45097L10.0059 5.22987L5.53819 8.34337C5.33115 8.47857 5.06288 8.49547 4.83864 8.39017L0.756163 6.46162C0.511284 6.34527 0.362017 6.10282 0.37715 5.84412C0.391595 5.58542 0.568376 5.35922 0.825638 5.27017L13.8951 0.720173C14.1461 0.633723 14.4288 0.690273 14.6194 0.870323C14.8092 1.04907 14.8711 1.31687 14.7783 1.55477L9.96322 13.9048C9.8683 14.1479 9.62961 14.3149 9.35584 14.3286C9.34346 14.3292 9.33039 14.3299 9.31801 14.3299Z"
-              fill="black" />
-          </svg>
-          <span class="form__button">Підписатися</span>
-        </button>
-      </form>
+          <label class="form__label" for="mail">
+            <span class="visually-hidden">форма введення електронної пошти</span>
+            <input class="form__input" type="text" id="mail" name="mail" required placeholder="Ваш email">
+          </label>
 
-      <div class="footer__inner">
-        <ul class="footer__list">
-          <li class="footer__item">
-            <a class="footer__link" href="#">Як це працює</a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">Продукти</a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">Страви</a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">Меню</a>
-          </li>
-        </ul>
-
-        <ul class="footer__list">
-          <li class="footer__item">
-            <a class="footer__link" href="#">Про нас</a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">Новини</a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">Партнери</a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">ЧаПи</a>
-          </li>
-        </ul>
-
-        <ul class="footer__list">
-          <li class="footer__item">
-            <a class="footer__link" href="#">Застосунок</a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">Блог</a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">Що нового?</a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">Мапа сайту</a>
-          </li>
-        </ul>
+          <button class="btn form__btn" type="submit">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.31801 14.3299C9.05868 14.3299 8.81931 14.1914 8.70237 13.9704L6.66079 10.112C6.54867 9.90012 6.56793 9.64662 6.71031 9.45097L10.0059 5.22987L5.53819 8.34337C5.33115 8.47857 5.06288 8.49547 4.83864 8.39017L0.756163 6.46162C0.511284 6.34527 0.362017 6.10282 0.37715 5.84412C0.391595 5.58542 0.568376 5.35922 0.825638 5.27017L13.8951 0.720173C14.1461 0.633723 14.4288 0.690273 14.6194 0.870323C14.8092 1.04907 14.8711 1.31687 14.7783 1.55477L9.96322 13.9048C9.8683 14.1479 9.62961 14.3149 9.35584 14.3286C9.34346 14.3292 9.33039 14.3299 9.31801 14.3299Z"
+                fill="black" />
+            </svg>
+            <span class="form__button">Підписатися</span>
+          </button>
+        </form>
       </div>
+
+      <ul class="footer__list">
+        <li class="footer__item">
+          <a class="link" href="#">Як це працює</a>
+        </li>
+        <li class="footer__item">
+          <a class="link" href="#">Про нас</a>
+        </li>
+        <li class="footer__item">
+          <a class="link" href="#">Застосунок</a>
+        </li>
+        <li class="footer__item">
+          <a class="link" href="#">Продукти</a>
+        </li>
+        <li class="footer__item">
+          <a class="link" href="#">Новини</a>
+        </li>
+        <li class="footer__item">
+          <a class="link" href="#">Блог</a>
+        </li>
+        <li class="footer__item">
+          <a class="link" href="#">Страви</a>
+        </li>
+        <li class="footer__item">
+          <a class="link" href="#">Партнери</a>
+        </li>
+        <li class="footer__item">
+          <a class="link" href="#">Що нового?</a>
+        </li>
+        <li class="footer__item">
+          <a class="link" href="#">Меню</a>
+        </li>
+        <li class="footer__item">
+          <a class="link" href="#">ЧаПи</a>
+        </li>
+        <li class="footer__item">
+          <a class="link" href="#">Мапа сайту</a>
+        </li>
+      </ul>
 
       <address class="contacts">
         <ul class="contacts__list">
           <li class="contacts__item">
-            <a class="contacts__link contacts__link--map" target="_blank"
-              href="https://maps.app.goo.gl/ACnKRHvCZVJXT6tv5">вул. Т.Г.Шевченка, 1</a>
+            <a class="link contacts__link" target="_blank" href="https://maps.app.goo.gl/ACnKRHvCZVJXT6tv5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Iconly/Light/Location">
+                  <g id="Location">
+                    <path id="Stroke 1" fill-rule="evenodd" clip-rule="evenodd"
+                      d="M14.5 10.5005C14.5 9.11924 13.3808 8 12.0005 8C10.6192 8 9.5 9.11924 9.5 10.5005C9.5 11.8808 10.6192 13 12.0005 13C13.3808 13 14.5 11.8808 14.5 10.5005Z"
+                      stroke="#31352B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path id="Stroke 3" fill-rule="evenodd" clip-rule="evenodd"
+                      d="M11.9995 21C10.801 21 4.5 15.8984 4.5 10.5633C4.5 6.38664 7.8571 3 11.9995 3C16.1419 3 19.5 6.38664 19.5 10.5633C19.5 15.8984 13.198 21 11.9995 21Z"
+                      stroke="#31352B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </g>
+                </g>
+              </svg>
+
+              вул.
+              Т.Г.Шевченка, 1</a>
           </li>
           <li class="contacts__item">
-            <a class="contacts__link contacts__link--tel" href="tel:+380501112233">380501112233</a>
+            <a class="link contacts__link" href="tel:+380501112233">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Iconly/Light/Calling">
+                  <g id="Calling">
+                    <path id="Stroke 1" d="M14.353 2.5C18.054 2.911 20.978 5.831 21.393 9.532" stroke="#31352B"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path id="Stroke 3" d="M14.353 6.04297C16.124 6.38697 17.508 7.77197 17.853 9.54297"
+                      stroke="#31352B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path id="Stroke 5" fill-rule="evenodd" clip-rule="evenodd"
+                      d="M11.0315 12.4724C15.0205 16.4604 15.9254 11.8467 18.4653 14.3848C20.9138 16.8328 22.3222 17.3232 19.2188 20.4247C18.8302 20.737 16.3613 24.4943 7.68447 15.8197C-0.993406 7.144 2.76157 4.67244 3.07394 4.28395C6.18377 1.17385 6.66682 2.58938 9.11539 5.03733C11.6541 7.5765 7.04254 8.48441 11.0315 12.4724Z"
+                      stroke="#31352B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </g>
+                </g>
+              </svg>
+
+              380501112233</a>
           </li>
           <li class="contacts__item">
-            <a class="contacts__link contacts__link--mail" href="mailto:support@sfood.com">support@sfood.com</a>
+            <a class="link contacts__link" href="mailto:support@sfood.com">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Iconly/Light/Message">
+                <g id="Message">
+                <path id="Stroke 1" d="M17.9026 8.85107L13.4593 12.4641C12.6198 13.1301 11.4387 13.1301 10.5992 12.4641L6.11841 8.85107" stroke="#31352B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path id="Stroke 3" fill-rule="evenodd" clip-rule="evenodd" d="M16.9089 21C19.9502 21.0084 22 18.5095 22 15.4384V8.57001C22 5.49883 19.9502 3 16.9089 3H7.09114C4.04979 3 2 5.49883 2 8.57001V15.4384C2 18.5095 4.04979 21.0084 7.09114 21H16.9089Z" stroke="#31352B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                </g>
+                </svg>
+                
+              support@sfood.com</a>
           </li>
         </ul>
 
         <ul class="social">
           <li class="social__item">
             <a class="social__link" href="#">
+              <span class="visually-hidden">посилання на фейсбук</span>
               <svg width="10" height="21" viewBox="0 0 10 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M2.54678 20.5561V10.9246H0V7.45674H2.54678V4.49477C2.54678 2.16723 4.05118 0.0297852 7.51762 0.0297852C8.92113 0.0297852 9.95896 0.164335 9.95896 0.164335L9.87718 3.40269C9.87718 3.40269 8.81876 3.39239 7.66377 3.39239C6.41371 3.39239 6.21344 3.96846 6.21344 4.92459V7.45674H9.97655L9.81281 10.9246H6.21344V20.5561H2.54678Z"
@@ -773,6 +605,7 @@
           </li>
           <li class="social__item">
             <a class="social__link" href="#">
+              <span class="visually-hidden">посилання на твітер</span>
               <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M20.5263 2.01064C19.7715 2.33626 18.95 2.57061 18.1039 2.66188C18.9824 2.13999 19.6402 1.31549 19.954 0.34308C19.1297 0.833455 18.2266 1.17731 17.2849 1.35941C16.8913 0.938633 16.4153 0.603427 15.8865 0.374674C15.3577 0.145921 14.7874 0.0285227 14.2113 0.0297954C11.8802 0.0297954 10.0054 1.91937 10.0054 4.23817C10.0054 4.56379 10.0448 4.88941 10.109 5.20269C6.61845 5.02015 3.50534 3.35259 1.43568 0.79944C1.05857 1.44356 0.86095 2.17697 0.863383 2.92336C0.863383 4.38371 1.60589 5.67139 2.73816 6.4287C2.0709 6.40242 1.41926 6.21901 0.836248 5.8934V5.9452C0.836248 7.99019 2.2818 9.68489 4.20838 10.0746C3.84664 10.1686 3.47452 10.2167 3.10078 10.2177C2.82696 10.2177 2.56795 10.1906 2.30647 10.1536C2.8393 11.8211 4.39092 13.0323 6.23856 13.0718C4.79301 14.2041 2.98237 14.8701 1.01633 14.8701C0.663572 14.8701 0.337953 14.8578 0 14.8183C1.86491 16.0147 4.07763 16.7054 6.46057 16.7054C14.1965 16.7054 18.4295 10.2967 18.4295 4.734C18.4295 4.55146 18.4295 4.36891 18.4172 4.18637C19.2362 3.58693 19.954 2.84442 20.5263 2.01064Z"
@@ -782,6 +615,7 @@
           </li>
           <li class="social__item">
             <a class="social__link" href="#">
+              <span class="visually-hidden">посилання на інстаграм</span>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M9.74756 6.5284C7.95723 6.5284 6.49618 7.98945 6.49618 9.77979C6.49618 11.5701 7.95723 13.0312 9.74756 13.0312C11.5379 13.0312 12.9989 11.5701 12.9989 9.77979C12.9989 7.98945 11.5379 6.5284 9.74756 6.5284ZM19.4993 9.77979C19.4993 8.43338 19.5115 7.09916 19.4359 5.75519C19.3602 4.19414 19.0041 2.8087 17.8626 1.66718C16.7186 0.523218 15.3356 0.169542 13.7746 0.0939285C12.4282 0.0183149 11.094 0.0305107 9.75 0.0305107C8.40359 0.0305107 7.06938 0.0183149 5.72541 0.0939285C4.16435 0.169542 2.77892 0.525658 1.63739 1.66718C0.493433 2.81114 0.139757 4.19414 0.0641433 5.75519C-0.0114703 7.1016 0.00072551 8.43581 0.00072551 9.77979C0.00072551 11.1238 -0.0114703 12.4604 0.0641433 13.8044C0.139757 15.3654 0.495873 16.7509 1.63739 17.8924C2.78135 19.0364 4.16435 19.39 5.72541 19.4656C7.07182 19.5413 8.40603 19.5291 9.75 19.5291C11.0964 19.5291 12.4306 19.5413 13.7746 19.4656C15.3356 19.39 16.7211 19.0339 17.8626 17.8924C19.0066 16.7484 19.3602 15.3654 19.4359 13.8044C19.5139 12.4604 19.4993 11.1262 19.4993 9.77979ZM9.74756 14.7825C6.97913 14.7825 4.74487 12.5482 4.74487 9.77979C4.74487 7.01135 6.97913 4.77709 9.74756 4.77709C12.516 4.77709 14.7503 7.01135 14.7503 9.77979C14.7503 12.5482 12.516 14.7825 9.74756 14.7825ZM14.9551 5.74056C14.3088 5.74056 13.7868 5.21858 13.7868 4.5722C13.7868 3.92583 14.3088 3.40385 14.9551 3.40385C15.6015 3.40385 16.1235 3.92583 16.1235 4.5722C16.1237 4.72569 16.0936 4.8777 16.035 5.01954C15.9763 5.16138 15.8903 5.29025 15.7817 5.39878C15.6732 5.50731 15.5443 5.59337 15.4025 5.65201C15.2606 5.71066 15.1086 5.74075 14.9551 5.74056Z"
