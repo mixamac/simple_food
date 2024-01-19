@@ -1,6 +1,6 @@
 $(function () {
 
-  var mixer = mixitup('.popular-list');
+  var mixer = mixitup('.popular__list');
 });
 
 $(function () {
