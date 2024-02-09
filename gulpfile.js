@@ -5,22 +5,24 @@ const autoprefixer = require('gulp-autoprefixer');
 const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 const del = require('del');
+const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
-
 
 function browsersync() {
   browserSync.init({
     server: {
       baseDir: 'app/'
-    }
+    },
+    notify: false
   })
 }
 
-
 function styles() {
-  return src('app/scss/style.scss')
+  return src('app/scss/*.scss')
     .pipe(scss({ outputStyle: 'compressed' }))
-    .pipe(concat('style.min.css'))
+    .pipe(rename({
+      suffix : '.min'
+    }))
     .pipe(autoprefixer({
       grid: true,
       overrideBrowserslist: ["last 10 versions"]
@@ -33,6 +35,10 @@ function scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
     'node_modules/mixitup/dist/mixitup.js',
+    'node_modules/slick-carousel/slick/slick.js',
+    'node_modules/jquery-form-styler/dist/jquery.formstyler.js',
+    'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
+    'node_modules/rateyo/src/jquery.rateyo.js',
     'app/js/main.js'
   ])
     .pipe(concat('main.min.js'))

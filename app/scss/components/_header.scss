@@ -1,0 +1,294 @@
+.header {
+	padding: 58px 0;
+	position: fixed;
+	width: 100%;
+	background-color: $silver-bg;
+	z-index: 1;
+	transition: padding 0.3s;
+
+	&.scroll {
+		padding: 14px 0;
+	}
+
+	&__container {
+		display: flex;
+	}
+
+	&__box {
+		display: flex;
+		gap: 10px;
+	}
+
+	&__svg {
+		fill: transparent;
+		stroke: $darkBlue;
+		transition: stroke 0.3s;
+	}
+
+	&__btn {
+		width: 44px;
+		height: 44px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 5px;
+		transition: background-color 0.4s, box-shadow 0.4s;
+
+		&:hover {
+			background-color: $accent;
+
+			.header__svg {
+				stroke: $white;
+			}
+		}
+
+		&:focus {
+			background-color: rgba(255, 104, 56, 0.1);
+			box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.7);
+		}
+
+		&:active {
+			background-color: rgb(255, 242, 237);
+		}
+
+		&--num {
+			position: relative;
+
+			&:hover {
+				.header__num {
+					color: $accent;
+					background-color: $white;
+				}
+			}
+		}
+	}
+
+	&__num {
+		position: absolute;
+		width: 14px;
+		height: 14px;
+		font-size: 10px;
+		color: $white;
+		background-color: $accent;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		right: 3px;
+		top: 9px;
+		transition: color 0.4s, background-color 0.4s;
+	}
+}
+
+.burger-btn {
+	display: none;
+}
+
+.logo {
+	border-radius: 5px;
+	transition: opacity 0.4s, box-shadow 0.4s;
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&:focus {
+		box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.70);
+	}
+
+	&:active {
+		opacity: 0.5;
+	}
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-grow: 1;
+
+	&__btn {
+		height: 44px;
+		width: 44px;
+		background-color: transparent;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 25px;
+		left: 243px;
+		z-index: 11;
+		display: none;
+	}
+
+	&__list {
+		display: flex;
+		gap: 43px;
+		margin-right: 52px;
+	}
+
+	&__contacts {
+		display: none;
+		padding-top: 20px;
+	}
+
+	.contacts__item:not(:last-child) {
+		margin: 0;
+	}
+
+	.contacts__link {
+		padding: 11px 15px;
+	}
+
+	.contacts__list {
+		margin-bottom: 10px;
+	}
+
+	.social {
+		padding-left: 15px;
+	}
+
+	&__svg {
+		fill: $darkBlue;
+		transition: fill 0.3s;
+	}
+
+	&__link {
+		&.current {
+			color: $accent;
+		}
+	}
+}
+
+@media (max-width: 1199px) {
+	.header {
+		padding: 14px 0;
+	}
+
+	.menu {
+		&__list {
+			gap: 35px;
+			margin-right: 35px;
+		}
+
+		&__link {
+			padding: 11px 0;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+
+	.header {
+		&__box {
+			margin-right: 10px;
+		}
+
+		.logo {
+			z-index: 11;
+
+			&__img {
+				width: 115px;
+			}
+		}
+	}
+
+
+	.burger-btn {
+		width: 44px;
+		height: 44px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: background-color 0.3s;
+
+		&__line {
+			display: block;
+			width: 30px;
+			height: 2px;
+			background-color: $darkBlue;
+			position: relative;
+
+			&::before,
+			&::after {
+				content: " ";
+				display: block;
+				width: 30px;
+				height: 2px;
+				background-color: $darkBlue;
+				position: absolute;
+				left: 0;
+				transition: background-color 0.3s;
+			}
+
+			&::before {
+				top: -10px;
+			}
+
+			&::after {
+				bottom: -10px;
+			}
+		}
+
+		&:active {
+			.burger-btn__line {
+				background-color: $accent;
+
+				&::before {
+					background-color: $accent;
+				}
+
+				&::after {
+					background-color: $accent;
+				}
+			}
+		}
+	}
+
+	.menu {
+		&__list {
+			position: absolute;
+			background-color: $white;
+			height: 100vh;
+			width: 300px;
+			display: block;
+			left: 0;
+			top: 0;
+			transform: translateY(-120%);
+			z-index: 10;
+			display: block;
+			margin-right: 0;
+			padding: 105px 0 30px;
+			overflow-x: auto;
+			transition: transform 0.3s;
+		}
+
+		&__link {
+			padding: 9px 15px;
+			display: block;
+		}
+
+		&__btn:active {
+			.menu__svg {
+				fill: $accent;
+			}
+		}
+
+		&.active {
+			.logo__img {
+				width: 200px;
+				padding-top: 11px;
+				background-color: $white;
+			}
+
+			.menu__list {
+				transform: translateY(0);
+			}
+
+			.menu__btn,
+			.menu__contacts {
+				display: block;
+			}
+		}
+	}
+}
